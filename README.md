@@ -62,8 +62,7 @@ The implementation is explained ahead and can be found in attached files.
 ## Control Allocation Flow
 
 The diagram below illustrates how the motor failure is injected into the PX4 control allocation pipeline and how the actuator effectiveness matrix is rebuilt at runtime.
-
-![PX4 Control Allocation Pipeline](assets/diagrams/ControlAllocationdrawio.png)
+![PX4 Control Allocation Pipeline](assets/diagrams/ControlAllocationdrawio.png) 
 
 
 ---
