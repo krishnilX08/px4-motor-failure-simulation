@@ -4,6 +4,8 @@
 ## Overview
 This project demonstrates a two-phase implementation involving **PX4 SITL** setup, takeoff, hover and **runtime modification of the control allocation matrix** to simulate motor failure in flight.
 
+The main goal is not recovery, but to study the Control Allocation behaviour and underactuation effects.
+
 ### The primary objectives:
 
 1. Autonomous takeoff and stable hover at 20m altitude.
@@ -53,6 +55,15 @@ ControlAllocator → ActuatorEffectivenessMultirotor → ActuatorEffectivenessRo
 The implementation is explained ahead and can be found in attached files.
 
 **Result:** Uncontrolled fall due to underactuation and oversaturated outputs to the remaining motors after failure and reallocation.
+
+
+---
+
+## Control Allocation Flow
+
+The diagram below illustrates how the motor failure is injected into the PX4 control allocation pipeline and how the actuator effectiveness matrix is rebuilt at runtime.
+
+![PX4 Control Allocation Pipeline](assets/diagrams/ControlAllocationdrawio.png)
 
 
 ---
@@ -224,7 +235,7 @@ This dynamically removes that rotor’s contribution from PX4’s mixing logic, 
 
 ---
 
-## 🧪 Deployment Steps
+## Deployment Steps
 1. Build the firmware and launch simulation:
 
        make px4_sitl gz_x500
@@ -241,7 +252,20 @@ This dynamically removes that rotor’s contribution from PX4’s mixing logic, 
 
 ---
 
-## 📄 References
+## Results and Demonstration
+
+After disabling one motor at runtime, the quadcopter becomes underactuated.
+The control allocator redistributes outputs to the remaining motors, which saturate and fail to generate the required stabilization torques, making the quadcopter fall due to the lack of recovery algorithms.
+
+### Logs
+![Motor failure logs](assets/logs/motor_failure_logs.png)
+
+### Simulation Video
+[Motor failure simulation](assets/demo/motorfailure_demonstration.webm)
+
+---
+
+## References
 
 - https://docs.px4.io/main/en/concept/control_allocation.html
 - https://docs.px4.io/main/en/concept/architecture.html
@@ -249,7 +273,7 @@ This dynamically removes that rotor’s contribution from PX4’s mixing logic, 
 - https://github.com/PX4/PX4-Autopilot/issues/18556
 
 
-## 👤 Author
+## Author
 - **Name:** Krishnil Rishianand Shindore
 - **Institution:** IIT (BHU) Varanasi  
 - **Project:** PX4 Motor Failure Simulation
