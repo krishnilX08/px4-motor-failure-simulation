@@ -252,8 +252,8 @@ This dynamically removes that rotor’s contribution from PX4’s mixing logic, 
 ## 👤 Author
 - **Name:** Krishnil Rishianand Shindore
 - **Institution:** IIT (BHU) Varanasi  
-- **Project:** PX4 Motor Failure Simulation (Control Allocator)
+- **Project:** PX4 Motor Failure Simulation
 - **Github:** https://github.com/krishnilX08
-- **Email:** krishnilshindore@outlook.com, krishnil.shindore.chy24@itbhu.ac.in
+- **Email:** shindore.krishnil8@gmail.com, krishnil.shindore.chy24@itbhu.ac.in
 
 ---
