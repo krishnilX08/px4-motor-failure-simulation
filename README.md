@@ -251,6 +251,13 @@ This dynamically removes that rotor’s contribution from PX4’s mixing logic, 
 
 ---
 
+## Implementation
+
+The PX4 implementation is available in the
+[`motor-failure` branch of my PX4-Autopilot fork](https://github.com/krishnilX08/PX4-Autopilot/tree/motor-failure).
+
+---
+
 ## Results and Demonstration
 
 After disabling one motor at runtime, the quadcopter becomes underactuated.
